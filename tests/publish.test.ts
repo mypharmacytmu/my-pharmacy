@@ -53,9 +53,9 @@ it('發布檢查解碼圖檔、禁止歷史覆寫並允許停用及重新啟用'
       .png()
       .toBuffer();
     writeFileSync(join(path, 'images/fixture.png'), picture);
+    git('init', '-q');
     const first = cli();
     expect(first.status, first.stderr).toBe(0);
-    git('init', '-q');
     git('add', '.');
     git(
       '-c',

@@ -174,6 +174,11 @@ test('管理草稿、發布 ZIP、進貨與隔離', async ({ page }, info) => {
     strFromU8(zip[`public/teaching/${index.codes.OI01AB.manifest}`]),
   );
   expect(published.medicines[0].palette).toBe('slate');
+  const paths = page.getByRole('region', { name: '本次發布包的 GitHub 路徑' });
+  await expect(paths.getByText('public/teaching/index.json')).toBeVisible();
+  await expect(paths.getByText(`public/teaching/${index.codes.OI01AB.manifest}`)).toBeVisible();
+  await page.getByText('如何在 GitHub 網頁上傳教材', { exact: true }).click();
+  await expect(page.getByText('public/teaching/public/teaching/', { exact: true })).toBeVisible();
   let active = true;
   await page.route('**/teaching/**', (route) => {
     const path =

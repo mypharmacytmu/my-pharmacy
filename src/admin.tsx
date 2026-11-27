@@ -135,6 +135,7 @@ async function exportTheme(theme: Theme, catalog: Medicine[]) {
     }),
   );
   zip(files);
+  return Object.keys(files).sort();
 }
 
 function Admin() {
@@ -144,6 +145,7 @@ function Admin() {
   const [index, setIndex] = useState<CodeIndex>();
   const [busy, setBusy] = useState(false);
   const [feedback, setFeedback] = useState('');
+  const [publicationPaths, setPublicationPaths] = useState<string[]>([]);
   const [error, setError] = useState('');
   async function run(action: () => Promise<void>) {
     setBusy(true);
@@ -185,6 +187,17 @@ function Admin() {
             開啟新手管理手冊
           </a>
         </p>
+        <details className="panel" id="publication-guide">
+          <summary>如何在 GitHub 網頁上傳教材</summary>
+          <ol>
+            <li>先從最新 main 建立教材分支，再解壓 ZIP。包內可能包含 <code>public/teaching/</code>。</li>
+            <li>在 GitHub 開啟分支的 <code>public/teaching/</code>。用編輯功能將新代碼合併至 <code>public/teaching/index.json</code>，保留既有代碼與對應版本。</li>
+            <li>進入 <code>public/teaching/versions/</code>，選 Add file → Upload files，只選新版本 JSON。有圖片時，將圖片放到 <code>public/teaching/images/</code>。</li>
+            <li>提交前核對 GitHub 路徑列和檔名，確認最終完整路徑。請勿上傳整個外層資料夾，避免產生 <code>public/teaching/public/teaching/</code>。</li>
+            <li>開啟 PR 供審查。合併後等 Actions 的部署成功，再到正式遊戲輸入教材代碼並預覽進貨。</li>
+          </ol>
+          <a href={`${import.meta.env.BASE_URL}ADMIN_GUIDE.html#c13`}>查看手冊的提交教材步驟</a>
+        </details>
         {draft && (
           <fieldset disabled={busy}>
             <section className="panel">
@@ -338,7 +351,7 @@ function Admin() {
                   className="primary"
                   onClick={() =>
                     void run(async () => {
-                      await exportTheme(theme, draft.catalog);
+                      setPublicationPaths(await exportTheme(theme, draft.catalog));
                       setFeedback('已匯出教材發布包。');
                     })
                   }
@@ -385,6 +398,7 @@ function Admin() {
                               };
                               checkHistory(latest, next);
                               zip({ [at('index.json')]: json(next) });
+                              setPublicationPaths([at('index.json')]);
                               setFeedback('已匯出索引變更，提交及部署後生效。');
                             })
                           }
@@ -397,6 +411,15 @@ function Admin() {
                 ))}
             </section>
           </fieldset>
+        )}
+        {publicationPaths.length > 0 && (
+          <section className="panel" aria-label="本次發布包的 GitHub 路徑">
+            <h2>本次發布包的 GitHub 路徑</h2>
+            <p>提交前逐項比對完整路徑。<a href="#publication-guide">回到上傳說明</a></p>
+            <ul>
+              {publicationPaths.map((path) => <li key={path}><code>{path}</code></li>)}
+            </ul>
+          </section>
         )}
         {feedback && (
           <p role="status" className="toast">
