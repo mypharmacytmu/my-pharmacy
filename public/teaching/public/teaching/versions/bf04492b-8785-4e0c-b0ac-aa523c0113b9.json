@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "title": "test",
+  "version": "bf04492b-8785-4e0c-b0ac-aa523c0113b9",
+  "medicines": [
+    {
+      "genericName": "sennoside",
+      "dosageFormId": "tablet",
+      "strength": "12mg",
+      "classification": null,
+      "brand": "THROUGH"
+    }
+  ]
+}
