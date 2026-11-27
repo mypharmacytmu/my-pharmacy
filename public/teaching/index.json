@@ -12,6 +12,10 @@
     "DAPA22": {
       "active": true,
       "manifest": "versions/9c73ba8f-2a98-4df4-b0a0-d886b66c1622.json"
+    },
+    "TEST66": {
+      "active": true,
+      "manifest": "versions/bf04492b-8785-4e0c-b0ac-aa523c0113b9.json"
     }
   }
 }

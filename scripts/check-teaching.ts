@@ -1,9 +1,12 @@
 import { maxImageBytes, maxImageSide } from '../src/images';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { lstat, readFile } from 'node:fs/promises';
 import sharp from 'sharp';
 import {
   checkHistory,
+  safeImage,
+  safeManifest,
   validateIndex,
   validatePack,
   type CodeIndex,
@@ -11,15 +14,85 @@ import {
 import { identity } from '../src/model';
 
 const directory = 'public/teaching';
+const indexPath = `${directory}/index.json`;
+// Allow the original bytes of the two legacy files committed before this check.
+const legacyFiles: Record<string, string> = {
+  'teaching/index.json':
+    'da3d92d2d035a25fe1c430dd59cbce9f714453c1bd8f35b1925b7e5b21a4559b',
+  'teaching/versions/61c09a50-1c8b-462b-b2d4-09b8b2278595.json':
+    'c2d7f2700cb66f8a3b19d466ce570aa13d9913db2cb91093eaf0650d2c7e0b2a',
+};
+const uuid = '[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}';
+const exportedImage = new RegExp(`(?:^|/)${uuid}-${uuid}\\.(png|jpg|webp)$`);
+
+async function statIfPresent(path: string) {
+  try {
+    return await lstat(path);
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return undefined;
+    throw error;
+  }
+}
+
+async function hasTeachingSchema(path: string) {
+  const content = await readFile(path, 'utf8');
+  try {
+    const data = JSON.parse(content);
+    return data?.schemaVersion === 1 &&
+      (Object.hasOwn(data, 'codes') ||
+        (Object.hasOwn(data, 'version') && Object.hasOwn(data, 'medicines')));
+  } catch (error) {
+    if (error instanceof SyntaxError) return false;
+    throw error;
+  }
+}
+
+async function listTeachingResources() {
+  const paths = execFileSync(
+    'git',
+    ['ls-files', '--cached', '--others', '--exclude-standard', '-z'],
+    { encoding: 'utf8' },
+  ).split('\0');
+  const resources = new Set<string>();
+  for (const path of new Set(paths)) {
+    if (!path || path === indexPath) continue;
+    const relative = path.slice(directory.length + 1);
+    const inside = path.startsWith(`${directory}/`);
+    const teachingPath =
+      /(?:^|\/)teaching\/(?:public\/|index\.json$|versions\/|images\/)/.test(path);
+    const generatedImage = exportedImage.test(path);
+    if (!inside && !teachingPath && !generatedImage && !path.endsWith('.json'))
+      continue;
+    // Git may still list files deleted from the local working tree.
+    const info = await statIfPresent(path);
+    if (!info) continue;
+    if (inside && (safeManifest(relative) || safeImage(relative))) {
+      resources.add(relative);
+      continue;
+    }
+    if (info.isFile() && Object.hasOwn(legacyFiles, path)) {
+      const digest = createHash('sha256').update(await readFile(path)).digest('hex');
+      if (digest === legacyFiles[path]) continue;
+    }
+    if (
+      inside || teachingPath || generatedImage ||
+      (info.isFile() && await hasTeachingSchema(path))
+    )
+      throw new Error(`教材檔案位置錯誤：${path}。請核對 ${indexPath} 及正式版本／圖片目錄。`);
+  }
+  return resources;
+}
+
+const resources = await listTeachingResources();
 const read = async (name: string) => {
   const path = `${directory}/${name}`;
   const parent = path.slice(0, path.lastIndexOf('/'));
   if (
-    !(await lstat(directory)).isDirectory() ||
-    !(await lstat(parent)).isDirectory() ||
-    !(await lstat(path)).isFile()
+    !(await statIfPresent(directory))?.isDirectory() ||
+    !(await statIfPresent(parent))?.isDirectory() ||
+    !(await statIfPresent(path))?.isFile()
   ) {
-    throw new Error(`教材必須使用普通檔案：${name}`);
+    throw new Error(`教材資源不存在或不是普通檔案：${path}`);
   }
   return readFile(path);
 };
@@ -94,6 +167,10 @@ for (const [code, entry] of Object.entries(current.codes)) {
     }
     await img.raw().toBuffer();
   }
+}
+for (const resource of resources) {
+  if (!files.has(resource) && !isOld(resource))
+    throw new Error(`新增教材資源未登錄或未引用：${directory}/${resource}`);
 }
 for (const file of priorFiles) {
   const relative = file.slice(directory.length + 1);
