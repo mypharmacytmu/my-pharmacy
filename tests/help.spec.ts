@@ -263,3 +263,36 @@ test('手機的大量藥品清單可獨立捲動，篩選和搜尋在上架後�
     await mobile.close();
   }
 });
+
+for (const device of [
+  { label: '桌面', width: 1280, height: 800, touch: false },
+  { label: '平板', width: 768, height: 900, touch: true },
+  { label: '手機', width: 360, height: 640, touch: true },
+]) {
+  test(`${device.label}捲動後仍可由獨立藥架返回總覽`, async ({ browser, baseURL }) => {
+    const context = await browser.newContext({
+      viewport: { width: device.width, height: device.height },
+      hasTouch: device.touch,
+      isMobile: device.touch,
+    });
+    try {
+      const page = await context.newPage();
+      await page.goto(baseURL!);
+      await page.getByRole('button', { name: '進入我的藥局' }).click();
+      await page.getByRole('button', { name: 'OTC-01', exact: true }).click();
+      await page.getByRole('button', { name: '開啟 OTC-01 藥架' }).click();
+      const back = page.getByRole('button', { name: '返回藥局總覽', exact: true });
+      await expect(back).toBeInViewport({ ratio: 1 });
+      await page.getByRole('button', { name: '恢復預設視角' }).click();
+      await page.evaluate(() => window.scrollTo(0, 380));
+      await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+      await expect(back).toBeInViewport({ ratio: 1 });
+      if (device.touch) await back.tap();
+      else await back.click();
+      await expect(page.getByRole('heading', { name: '我的 3D 藥局' })).toBeFocused();
+      await expect(back).toHaveCount(0);
+    } finally {
+      await context.close();
+    }
+  });
+}

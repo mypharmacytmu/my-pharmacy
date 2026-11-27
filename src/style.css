@@ -227,6 +227,17 @@ p {
   padding: clamp(1rem, 2.5vw, 1.7rem);
   margin-bottom: 1rem;
 }
+.shelf-navigation {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 0.45rem 0;
+  background: #f7faf6;
+}
+.shelf-navigation button {
+  min-height: 44px;
+  scroll-margin-top: 0.45rem;
+}
 .fields,
 .medicine-form,
 .shelf-layout {

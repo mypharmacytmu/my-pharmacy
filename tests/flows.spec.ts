@@ -66,7 +66,11 @@ test('首頁、個人藥品、七架、格位、離線成果與重置', async ({
     page.getByRole('heading', { name: 'Sample </script> A' }),
   ).toBeVisible();
   await page.screenshot({ path: info.outputPath('05-shelf.png') });
-  await page.getByRole('button', { name: '返回總覽' }).click();
+  await page.getByRole('button', { name: '返回藥局總覽' }).click();
+  await page.getByRole('button', { name: '開啟 OTC-01 藥架' }).click();
+  await expect(page.getByRole('heading', { name: /OTC-01.*教學架/ })).toBeVisible();
+  await expect(page.getByRole('list', { name: '格位資訊' })).toContainText('1 · Sample </script> A');
+  await page.getByRole('button', { name: '返回藥局總覽' }).click();
   const download = page.waitForEvent('download');
   await page.getByRole('button', { name: '下載 HTML 成果' }).click();
   const path = info.outputPath('share.html');
@@ -405,7 +409,7 @@ test('圖片尺寸、格式、裁切及無效內容', async ({ page }, info) => 
   await page.getByRole('button', { name: '開啟 OTC-01 藥架' }).click();
   await page.getByRole('button', { name: '選擇', exact: true }).click();
   await selectFirst3DSlot(page);
-  await page.getByRole('button', { name: '返回總覽' }).click();
+  await page.getByRole('button', { name: '返回藥局總覽' }).click();
   const downloading = page.waitForEvent('download');
   await page.getByRole('button', { name: '下載 HTML 成果' }).click();
   const download = await downloading;

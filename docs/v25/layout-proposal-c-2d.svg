@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="193.75mm" height="135.9375mm" viewBox="0 0 1240 870" role="img" aria-labelledby="title desc">
+<title id="title">My Pharmacy v25｜方案 C：L 型櫃檯與開放陳列</title>
+<desc id="desc">供審查的等比例俯視平面圖。十一公尺寬、八點五公尺深，南方入口，兩側五座 OTC，北方三座 RX。圖示訪客、員工、取藥動線及相機方向，並附藥架淨距矩陣。</desc>
+<defs>
+<marker id="public" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0 0L5 2.5L0 5Z" fill="#137f7c"/></marker>
+<marker id="staff" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0 0L5 2.5L0 5Z" fill="#7a4a9b"/></marker>
+<marker id="camera" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0 0L5 2.5L0 5Z" fill="#445b6c"/></marker>
+<style>text{font-family:'Noto Sans CJK TC','Noto Sans TC',sans-serif;fill:#173c35} .title{font-size:29px;font-weight:700}.sub{font-size:15px}.caption{font-size:14px;font-weight:700}.label{font-size:13px;font-weight:700}.small{font-size:12px}.mini{font-size:10px}.dim{stroke:#465b55;stroke-width:1;fill:none}.line{stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}</style>
+</defs>
+<rect width="1240" height="870" fill="#f7faf7"/>
+<rect x="116" y="156" width="704" height="544" rx="2" fill="#fff"/>
+
+<text class="title" x="80" y="57" text-anchor="start">方案 C｜L 型櫃檯＋開放陳列</text>
+<text class="sub" x="81" y="89" text-anchor="start">MY PHARMACY v25 · 平面審查圖 · 尺寸單位 m · 提案尺寸尚未核准</text>
+<path class="dim" d="M116 127v10 M820 127v10 M116 132H820"/>
+<text class="small" x="468.0" y="126" text-anchor="middle">11.00 m</text>
+<path class="dim" d="M84 156h10 M84 700h10 M89 156V700"/>
+<text class="small" x="81" y="428.0" text-anchor="middle" transform="rotate(-90 81 428.0)">8.50 m</text>
+<rect x="212" y="179.04" width="460.8" height="173.44" fill="#eaf4ef" stroke="none" />
+<rect x="391.2" y="396" width="153.6" height="304" fill="#e7f6f4" stroke="none" />
+<rect x="589.6" y="477.28" width="80" height="108.8" fill="#f7ecd4" stroke="#d3ae68" stroke-dasharray="4 3"/>
+<rect x="212" y="194.4" width="89.6" height="38.4" fill="#d1e5da" stroke="#648b77" />
+<rect x="157.6" y="274.4" width="25.6" height="76.8" fill="#ccebdd" stroke="#477568" />
+<text class="label" x="170.4" y="316.8" text-anchor="middle" transform="rotate(-90 170.4 316.8)">OTC01</text>
+<rect x="157.6" y="408.8" width="25.6" height="76.8" fill="#ccebdd" stroke="#477568" />
+<text class="label" x="170.4" y="451.2" text-anchor="middle" transform="rotate(-90 170.4 451.2)">OTC02</text>
+<rect x="157.6" y="543.2" width="25.6" height="76.8" fill="#ccebdd" stroke="#477568" />
+<text class="label" x="170.4" y="585.6" text-anchor="middle" transform="rotate(-90 170.4 585.6)">OTC03</text>
+<rect x="752.8" y="450.4" width="25.6" height="76.8" fill="#ccebdd" stroke="#477568" />
+<text class="label" x="765.6" y="492.8" text-anchor="middle" transform="rotate(-90 765.6 492.8)">OTC04</text>
+<rect x="752.8" y="584.8" width="25.6" height="76.8" fill="#ccebdd" stroke="#477568" />
+<text class="label" x="765.6" y="627.2" text-anchor="middle" transform="rotate(-90 765.6 627.2)">OTC05</text>
+<rect x="320.8" y="191.2" width="76.8" height="25.6" fill="#cbdcde" stroke="#477568" />
+<text class="label" x="359.20000000000005" y="208.0" text-anchor="middle">RX01</text>
+<rect x="436" y="191.2" width="76.8" height="25.6" fill="#cbdcde" stroke="#477568" />
+<text class="label" x="474.4" y="208.0" text-anchor="middle">RX02</text>
+<rect x="551.2" y="191.2" width="76.8" height="25.6" fill="#cbdcde" stroke="#477568" />
+<text class="label" x="589.5999999999999" y="208.0" text-anchor="middle">RX03</text>
+<polygon points="320.8,354.4 628,354.4 628,248.8 669.6,248.8 669.6,396 320.8,396" fill="#23765f" stroke="#175a4a"/>
+<text x="344.8" y="380.4" class="label" style="fill:#fff">L 型服務櫃檯</text>
+<text class="label" x="256.8" y="218.72" text-anchor="middle">調劑桌</text>
+<text class="label" x="256.8" y="252.64" text-anchor="middle">藥師調劑工作區</text>
+<text class="label" x="533.28" y="257.12" text-anchor="middle">RX 區／員工側</text>
+<text class="label" x="629.28" y="519.52" text-anchor="middle">客人</text>
+<text class="label" x="629.28" y="538.72" text-anchor="middle">等候區</text>
+<text class="label" x="468.0" y="629.6" text-anchor="middle">主要活動區</text>
+<path class="dim" d="M391.2 587.48v10 M544.8 587.48v10 M391.2 592.48H544.8"/>
+<text class="small" x="468.0" y="586.48" text-anchor="middle">主通道 2.40</text>
+<path class="dim" d="M669.6 551.0v10 M752.8 551.0v10 M669.6 556.0H752.8"/>
+<text class="small" x="711.2" y="550.0" text-anchor="middle">1.30</text>
+<path class="dim" d="M218.4 380.12v10 M295.2 380.12v10 M218.4 385.12H295.2"/>
+<text class="small" x="256.8" y="379.12" text-anchor="middle">員工口 1.20</text>
+<path class="dim" d="M587.8 216.8h10 M587.8 354.4h10 M592.8 216.8V354.4"/>
+<text class="small" x="584.8" y="285.6" text-anchor="middle" transform="rotate(-90 584.8 285.6)">櫃後 2.15</text>
+<path d="M183.2 389.6H320.8" stroke="#9475ab" stroke-dasharray="3 3" opacity=".65"/>
+<polyline class="line" points="468,686.56 468,647.52" stroke="#137f7c"  marker-end="url(#public)"/>
+<polyline class="line" points="468,574.56 468,418.4" stroke="#137f7c"  marker-end="url(#public)"/>
+<polyline class="line" points="480.8,444 596,444 596,470.24" stroke="#137f7c"  marker-end="url(#public)"/>
+<polyline class="line" points="379.68,327.52 379.68,280.8 474.4,280.8 474.4,220.64" stroke="#7a4a9b" stroke-dasharray="7 5" marker-end="url(#staff)"/>
+<polyline class="line" points="349.6,326.88 256.8,326.88 256.8,491.36 189.6,491.36" stroke="#7a4a9b" stroke-dasharray="7 5" marker-end="url(#staff)"/>
+<polyline class="line" points="256.8,491.36 256.8,548.32 324,548.32 324,495.2 565.28,495.2 565.28,437.6 712.48,437.6 712.48,496.48 748.32,496.48" stroke="#7a4a9b" stroke-dasharray="7 5" marker-end="url(#staff)"/>
+<path d="M116 700V156H820V700H525.6 M410.4 700H116" fill="none" stroke="#2a5a4e" stroke-width="3"/>
+<path class="dim" d="M410.4 695.0v10 M525.6 695.0v10 M410.4 700.0H525.6"/>
+<text class="small" x="468.0" y="694.0" text-anchor="middle">入口淨寬 1.80</text>
+<text class="caption" x="468" y="725" text-anchor="middle">南側入口</text>
+<polyline class="line" points="703.52,728.8 645.92,682.08 597.28,644.32" stroke="#445b6c"  marker-end="url(#camera)"/>
+<text class="small" x="706" y="735" text-anchor="start">相機概略朝西北</text>
+<path d="M718 777v-25l-5 8m5-8 5 8" stroke="#445b6c" fill="none" stroke-width="1.5"/>
+<text class="small" x="718" y="799" text-anchor="middle">N／北</text>
+<text class="caption" x="116" y="769" text-anchor="start">圖示比例尺／原尺寸列印 1:100</text>
+<rect x="116" y="780" width="64" height="9" fill="#285e51" stroke="#285e51"/>
+<rect x="180" y="780" width="64" height="9" fill="#fff" stroke="#285e51"/>
+<rect x="244" y="780" width="64" height="9" fill="#285e51" stroke="#285e51"/>
+<text class="small" x="116" y="808" text-anchor="middle">0</text>
+<text class="small" x="180" y="808" text-anchor="middle">1</text>
+<text class="small" x="244" y="808" text-anchor="middle">2</text>
+<text class="small" x="308" y="808" text-anchor="middle">3 m</text>
+<rect x="847" y="156" width="326" height="604" rx="12" fill="#fff" stroke="#d3e4dc"/>
+<text class="caption" x="866" y="182" text-anchor="start">配置、路徑與淨距</text>
+<text class="label" x="866" y="212" text-anchor="start">場景包絡 11.00 × 8.50</text>
+<text class="small" x="866" y="230" text-anchor="start">北↑／西←，位置以西北內角為原點</text>
+<text class="label" x="866" y="254" text-anchor="start">L 櫃檯 5.45 × 2.30</text>
+<text class="small" x="866" y="272" text-anchor="start">兩臂深 0.65｜櫃檯前至等候區 1.27</text>
+<text class="label" x="866" y="296" text-anchor="start">藥架 1.20 × 0.40</text>
+<text class="small" x="866" y="314" text-anchor="start">OTC 朝內／RX 朝南；架間非通道</text>
+<text class="label" x="866" y="338" text-anchor="start">西側取藥帶 1.30</text>
+<text class="small" x="866" y="356" text-anchor="start">局部西側通行，兩條流線在主區相交</text>
+<path d="M866 383h32" stroke="#137f7c" stroke-width="2.5" marker-end="url(#public)"/><path d="M866 406h32" stroke="#7a4a9b" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#staff)"/>
+<text class="small" x="913" y="387" text-anchor="start">訪客入口與服務／等候動線</text>
+<text class="small" x="913" y="410" text-anchor="start">員工入口及 OTC／RX 取藥示意</text>
+<text class="caption" x="866" y="440" text-anchor="start">全部藥架最短邊緣淨距（m）</text>
+<text class="small" x="866" y="461" text-anchor="start">O = OTC，R = RX；表值不代表可通行。</text>
+<text class="mini" x="879" y="506" text-anchor="start">O01</text>
+<text class="mini" x="912" y="482" text-anchor="middle">O01</text>
+<text class="mini" x="912" y="506" text-anchor="middle">—</text>
+<text class="mini" x="945" y="482" text-anchor="middle">O02</text>
+<text class="mini" x="945" y="506" text-anchor="middle">0.90</text>
+<text class="mini" x="978" y="482" text-anchor="middle">O03</text>
+<text class="mini" x="978" y="506" text-anchor="middle">3.00</text>
+<text class="mini" x="1011" y="482" text-anchor="middle">O04</text>
+<text class="mini" x="1011" y="506" text-anchor="middle">9.03</text>
+<text class="mini" x="1044" y="482" text-anchor="middle">O05</text>
+<text class="mini" x="1044" y="506" text-anchor="middle">9.62</text>
+<text class="mini" x="1077" y="482" text-anchor="middle">R01</text>
+<text class="mini" x="1077" y="506" text-anchor="middle">2.33</text>
+<text class="mini" x="1110" y="482" text-anchor="middle">R02</text>
+<text class="mini" x="1110" y="506" text-anchor="middle">4.05</text>
+<text class="mini" x="1143" y="482" text-anchor="middle">R03</text>
+<text class="mini" x="1143" y="506" text-anchor="middle">5.82</text>
+<text class="mini" x="879" y="530" text-anchor="start">O02</text>
+<text class="mini" x="945" y="530" text-anchor="middle">—</text>
+<text class="mini" x="978" y="530" text-anchor="middle">0.90</text>
+<text class="mini" x="1011" y="530" text-anchor="middle">8.90</text>
+<text class="mini" x="1044" y="530" text-anchor="middle">9.03</text>
+<text class="mini" x="1077" y="530" text-anchor="middle">3.69</text>
+<text class="mini" x="1110" y="530" text-anchor="middle">4.96</text>
+<text class="mini" x="1143" y="530" text-anchor="middle">6.49</text>
+<text class="mini" x="879" y="554" text-anchor="start">O03</text>
+<text class="mini" x="978" y="554" text-anchor="middle">—</text>
+<text class="mini" x="1011" y="554" text-anchor="middle">8.90</text>
+<text class="mini" x="1044" y="554" text-anchor="middle">8.90</text>
+<text class="mini" x="1077" y="554" text-anchor="middle">5.53</text>
+<text class="mini" x="1110" y="554" text-anchor="middle">6.45</text>
+<text class="mini" x="1143" y="554" text-anchor="middle">7.69</text>
+<text class="mini" x="879" y="578" text-anchor="start">O04</text>
+<text class="mini" x="1011" y="578" text-anchor="middle">—</text>
+<text class="mini" x="1044" y="578" text-anchor="middle">0.90</text>
+<text class="mini" x="1077" y="578" text-anchor="middle">6.64</text>
+<text class="mini" x="1110" y="578" text-anchor="middle">5.23</text>
+<text class="mini" x="1143" y="578" text-anchor="middle">4.14</text>
+<text class="mini" x="879" y="602" text-anchor="start">O05</text>
+<text class="mini" x="1044" y="602" text-anchor="middle">—</text>
+<text class="mini" x="1077" y="602" text-anchor="middle">7.99</text>
+<text class="mini" x="1110" y="602" text-anchor="middle">6.86</text>
+<text class="mini" x="1143" y="602" text-anchor="middle">6.07</text>
+<text class="mini" x="879" y="626" text-anchor="start">R01</text>
+<text class="mini" x="1077" y="626" text-anchor="middle">—</text>
+<text class="mini" x="1110" y="626" text-anchor="middle">0.60</text>
+<text class="mini" x="1143" y="626" text-anchor="middle">2.40</text>
+<text class="mini" x="879" y="650" text-anchor="start">R02</text>
+<text class="mini" x="1110" y="650" text-anchor="middle">—</text>
+<text class="mini" x="1143" y="650" text-anchor="middle">0.60</text>
+<text class="mini" x="879" y="674" text-anchor="start">R03</text>
+<text class="mini" x="1143" y="674" text-anchor="middle">—</text>
+<text class="small" x="866" y="723" text-anchor="start">OTC 同側相鄰 0.90；RX 相鄰 0.60。</text>
+<text class="small" x="866" y="741" text-anchor="start">走道候選值僅供遊戲配置審查。</text>
+<text class="caption" x="80" y="848" text-anchor="start">C-01｜概念設計 · 2D 平面 · 待審核</text>
+</svg>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { MedicineList, errorText } from './forms';
 import { PharmacyHelp } from './game-help';
 import { Scene } from './scene';
@@ -22,6 +22,7 @@ interface Editing {
 }
 
 export function Pharmacy({ game, editing }: { game: Game; editing?: Editing }) {
+  const overviewHeading = useRef<HTMLHeadingElement>(null);
   const [rackId, setRack] = useState<RackId>();
   const [overviewSelection, setOverviewSelection] = useState<RackId>();
   const [medicineId, setMedicine] = useState<string>();
@@ -80,14 +81,13 @@ export function Pharmacy({ game, editing }: { game: Game; editing?: Editing }) {
       <div className="section-title">
         <div>
           <p className="eyebrow">3D PHARMACY</p>
-          <h1>
+          <h1 ref={overviewHeading} tabIndex={-1}>
             {rack
               ? `${rack.id}${rack.name ? ` · ${rack.name}` : ''}`
               : '我的 3D 藥局'}
           </h1>
         </div>
         <div className="actions">
-          {rack && <button onClick={() => openRack()}>返回總覽</button>}
           <button onClick={() => setReset((n) => n + 1)}>恢復預設視角</button>
           {editing && (
             <PharmacyHelp
@@ -97,6 +97,19 @@ export function Pharmacy({ game, editing }: { game: Game; editing?: Editing }) {
           )}
         </div>
       </div>
+      {rack && (
+        <div className="shelf-navigation">
+          <button
+            className="primary"
+            onClick={() => {
+              openRack();
+              overviewHeading.current?.focus();
+            }}
+          >
+            <span aria-hidden="true">← </span>返回藥局總覽
+          </button>
+        </div>
+      )}
       <div className={rack ? 'shelf-layout' : undefined}>
         <div>
           {rack && (
